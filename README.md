@@ -4,23 +4,27 @@
 Command Library was written in Python 3.9, and the GUI uses TKinter.  
 To run properly, you must have both of these installed on your system.
 
-# Installation:
+# Prereqs:
+- Python 3.6 or greater 
+- tkinter
+
+If you install python from the python.org package, tkinter comes included
+
 On MacOS, you can use homebrew for both requirements:  
 *brew install Python*  
 *brew install tcl-tk*  
-Then, just clone this git repo, and run command_library_.py
 
 [Note: if you run into tcl errors such as `ModuleNotFoundError: No module named '_tkinter'` try `brew install python-tk`]
 
-# Operation:
-Upon opening the app, you will be presented with a 3 part window. The 1st pane contains the Dictionary selection dropdown and a snippet search box.
-The dictionary Selector dropdown allows you to switch between all dictionaries in your currently loaded Mohel. The search bar allows you to filter the list of Snippets for easy access.  
-The center pane, is a clickable list of all snippets. Clicking a snippet once, will select it and show info in the Info panel. Double-Clicking a snippet will copy the code to your clipboard for use in any program.  
-Finally the bottom info pane will show you a) the actual command itself and b) any information or options regarding the command.  
+# Quickstart:
 
-DB files can be imported/exported via the Library menu. Upon exiting, the current DB is saved (~/MyDB.lib). This fill will automatically be re-loaded the next time you open Command Library.  
-
-Finally, a special dictionary called "Recently Used" will contain a list of all Snippets that you have copied to the clipboard in order of usage.
+1. Clone this git repo, and run command_library_.py
+2. Load some sample dictionaries
+  Click the 'Dictionary' menu item and select 'Import Dictionary Folder'. In the open dialog, select the directory called 'Dictionary' from the local Git repo. This will load all .dct files in the directory.
+3. Select a Dictionary from the dropdown menu.
+4. Click a snippet in the list on the left.
+5. Information for the selected snippet is displayed on the right.
+6. Double-click the snippet to copy the snippet text to your clipboard.
 
 # Dictionary (.dct) files
 Dictionary files are standard JSON format text files with the following structure:
@@ -46,7 +50,8 @@ Dictionary files are standard JSON format text files with the following structur
 }
 ```
 # DB
-Command Library uses a database file (.lib) to store your currently loaded dictionaries. Each DB file contains one or more Dictionaries, and the dictionary files (.dct) contain one or more Snippets.  
+Command Library uses a database file (.lib) to store your currently loaded dictionaries. Each DB file contains one or more Dictionaries, and the dictionary files (.dct) contain one or more Snippets.
+  
 Snippets are discrete objects consisting of:  
 Title : The test displayed for the snippet in the Snippets list  
 Code : This is the actual text that will be copied to the clipboard  
