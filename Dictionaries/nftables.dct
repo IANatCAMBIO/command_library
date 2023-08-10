@@ -1,0 +1,19 @@
+{
+    "snippets": [
+        {
+            "title": "Purge all rules\n",
+            "code": "nft flush table TABLENAME\n",
+            "info": "Default table for FirewallD on Centos is :\n\nnft flush table inet firewalld\n"
+        },
+        {
+            "title": "See all tables\n",
+            "code": "nft list tables\n",
+            "info": ""
+        },
+        {
+            "title": "See rules for a table\n",
+            "code": "nft list table TABLENAME\n",
+            "info": "Default for FirewallD is:\nnft list table inet firewalld\n"
+        }
+    ]
+}

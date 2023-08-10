@@ -1,0 +1,64 @@
+{
+    "snippets": [
+        {
+            "title": "See service status\n",
+            "code": "firewall-cmd --state\n",
+            "info": "You can ALSO use systemctl status firewalld\n"
+        },
+        {
+            "title": "Reload permanent rules\n",
+            "code": "firewall-cmd --reload\n",
+            "info": "Will NOT interrupt existing connections!\n"
+        },
+        {
+            "title": "Find the 'default' zone\n",
+            "code": "firewall-cmd --get-default-zone\n",
+            "info": ""
+        },
+        {
+            "title": "Find ALL active zones\n",
+            "code": "firewall-cmd --get-active-zones\n",
+            "info": ""
+        },
+        {
+            "title": "Get details of zones\n",
+            "code": "firewall-cmd --list-all\n",
+            "info": "Will show interface membership\n\nTo target a specific zone, append \"--zone=public\" to the command.\n"
+        },
+        {
+            "title": "Permanentlyl add interface to a zone\n\n",
+            "code": "firewall-cmd --permanent --zone=internal --add-interface=cni0\n",
+            "info": "cni0 is the interface name from 'ip a'\n"
+        },
+        {
+            "title": "Allow an inbound port\n",
+            "code": "firewall-cmd --permanent --add-port=53/udp --zone=internal\n",
+            "info": "MOST zones allow any outbound traffic by default, but inbound traffic must explicitly be allowed.\n"
+        },
+        {
+            "title": "Allow traffic for a service\n",
+            "code": "firewall-cmd --zone=public --add-service=samba --permanent\n",
+            "info": "To see potential services to add, use \"firewall-cmd --get-services\". \n"
+        },
+        {
+            "title": "See allowed services\n",
+            "code": "firewall-cmd --zone=public --list-service\n",
+            "info": ""
+        },
+        {
+            "title": "Log dropped packets\n",
+            "code": "sudo firewall-cmd --set-log-denied=all\n",
+            "info": "By default, drops will be written to the system journal.\n\n"
+        },
+        {
+            "title": "View dropped packets\n",
+            "code": "journalctl -x -e --grep filter\n",
+            "info": "Follow it live with: \"journalctl -x -e -f --grep filter\". '-b' also only shows entried since last boot.\n\n"
+        },
+        {
+            "title": "Allow all traffic from a host or network\n",
+            "code": "firewall-cmd --zone=trusted --add-source=[network IP]/[netmask]\n\n",
+            "info": "You can leave off the cidr for a single host.\n\nNote that when adding public and trusted zone, the public zone takes precedence over the trusted zone, so if there is an overlap, the trusted zone will not be used.\n"
+        }
+    ]
+}

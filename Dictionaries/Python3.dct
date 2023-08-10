@@ -1,0 +1,14 @@
+{
+    "snippets": [
+        {
+            "title": "See all attributes and values for an object\n",
+            "code": "vars(object)\n",
+            "info": "Can also use:\ndir(object) to see attributes only\nand\ngetattr(your_object, your_object_attr)\nto get values.\n"
+        },
+        {
+            "title": "Run a quick webserver\n",
+            "code": "python3 -m http.server 7800\n",
+            "info": "This will run the server on TCP port 7800. If you leave the number off, this will run on port 8000 by default.\n"
+        }
+    ]
+}

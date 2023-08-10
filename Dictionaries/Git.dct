@@ -1,0 +1,89 @@
+{
+    "snippets": [
+        {
+            "title": "See local branches\n\n",
+            "code": "git branch\n",
+            "info": "This will show local branches only. To see remote branches: git branch -r. To see all: git branch -a.\n"
+        },
+        {
+            "title": "Clone a repo\n",
+            "code": "git clone REPO_URL\n",
+            "info": ""
+        },
+        {
+            "title": "Set global config\n",
+            "code": "git config --global user.name \"John Doe\"; git config --global user.email johndoe@example.com\n",
+            "info": ""
+        },
+        {
+            "title": "Set local config (for this repo only)\n",
+            "code": "git config --local user.name \"John Doe\"; git config --local user.email johndoe@example.com\n",
+            "info": ""
+        },
+        {
+            "title": "Resolve conficts when pushing\n",
+            "code": "",
+            "info": "Git stash (will copy your files to a temp dir, and revert your changes on original)\n\nGit pull (to pull any existing changes in the repo)\n\nGit stash pop (put your changed files back in the local repo)\n"
+        },
+        {
+            "title": "Create a new repo\n",
+            "code": "",
+            "info": "Mkdir FOLDER\n\nCd FOLDER\n\nGit init\n\nGit add *\n\nGit commit -m \"Initial Commit\"\n\ngit remote add origin REPO_URL\n\nGit push\n"
+        },
+        {
+            "title": "Rename a file\n",
+            "code": "git mv old-file-name.ts new-file-name.ts\n",
+            "info": "MacOS is case-aware, but not case sensitive. If you simply change the capitalization of a filename, GIT will not realize that there is a change to commit.\n"
+        },
+        {
+            "title": "Switch to a local branch\n",
+            "code": "git switch <branchname>\n",
+            "info": "if the branch does not exist, use 'git switch -c <branchnanme>' to both create it and switch in the same command.\n"
+        },
+        {
+            "title": "See commit history for current repo\n",
+            "code": "git log\n",
+            "info": "to see the difference in commits, use the '-p' flag.\n\n'-stat' will show abbreviated stats (changed files).\n\n\n"
+        },
+        {
+            "title": "To rollback to a previous commit\n",
+            "code": "git switch --detach <revison>\n",
+            "info": "This will LOSE commits since the target revision!\n"
+        },
+        {
+            "title": "See actual status of Git\n",
+            "code": "git fetch; git status\n",
+            "info": "This compares your local repo with the remote\n\nhttps://stackoverflow.com/questions/27828404/why-does-git-status-show-branch-is-up-to-date-when-changes-exist-upstream\n"
+        },
+        {
+            "title": "Fetch remote changes AND merge locally\n",
+            "code": "git pull\n",
+            "info": ""
+        },
+        {
+            "title": "Make a new local branch\n",
+            "code": "git checkout -b BRANCHNAME\n",
+            "info": ""
+        },
+        {
+            "title": "Delete a local branch\n",
+            "code": "git branch -d  local_branch_name\n",
+            "info": "You cannot delete the Active branch. Switch first with\ngit checkout localbranchname.\n\nAlso, if you have uncommitted changes, you'll have to use -D.\n"
+        },
+        {
+            "title": "Delete a remote branch\n",
+            "code": "git push remote_name -d remote_branch_name\n",
+            "info": ""
+        },
+        {
+            "title": "Create a new SSH key for Git access\n",
+            "code": "ssh-keygen -t ed25519 -C \"user@domain.com\"\n",
+            "info": "replace your email at the end of the string!\n\nssh-keygen: The command-line tool used for creating a new pair of SSH keys. You can see its flags with ssh-keygen help\n\n-t ed25519: The -t flag is used to indicate the algorithm used to create the digital signature of the key pair. If your system supports it, ed25519 is the best algorithm you can use to create SSH key pairs.\n\n-C \u201cemail\u201d: The -c flag is used to provide a custom comment at the end of the public key, which usually is the email or identification of the creator of the key pair.\n"
+        },
+        {
+            "title": "Undo the last commit\n",
+            "code": "git reset HEAD~\n",
+            "info": "This is non-destructive i.e. the files on your computer will not be changed. \n\nYou can also do it multiple times to roll back multiple UNPUSHED commits.\n"
+        }
+    ]
+}

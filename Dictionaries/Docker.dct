@@ -1,0 +1,74 @@
+{
+    "snippets": [
+        {
+            "title": "Build docker image\n",
+            "code": "docker build -f DOCKERFILENAME . -t TAGNAME\n",
+            "info": "DOCKERFILENAME is your dockerfile\nTAGNAME is the name of your repo\n"
+        },
+        {
+            "title": "See running containers\n",
+            "code": "docker ps\n",
+            "info": "Will not show stopped containers\n"
+        },
+        {
+            "title": "See ALL containers\n",
+            "code": "docker ps -a\n",
+            "info": ""
+        },
+        {
+            "title": "See local images\n",
+            "code": "docker images\n",
+            "info": ""
+        },
+        {
+            "title": "Stop a container\n",
+            "code": "docker kill CONTAINERNAME\n",
+            "info": "Will only stop a container, but not delete it.\n"
+        },
+        {
+            "title": "Delete a container\n",
+            "code": "docker rm CONTAINERNAME\n",
+            "info": ""
+        },
+        {
+            "title": "Delete an image\n",
+            "code": "docker image rm IMAGENAME\n",
+            "info": "Can't delete an image if it is in use by an existing container.\n"
+        },
+        {
+            "title": "Get a shell into a container\n",
+            "code": "docker exec -it CONTAINERNAME /bin/bash\n",
+            "info": "If container does not have bash, usually /bin/sh works.\n"
+        },
+        {
+            "title": "See docker networks\n",
+            "code": "docker network ls\n",
+            "info": ""
+        },
+        {
+            "title": "See details for a docker network\n",
+            "code": "docker network inspect NETWORKNAME\n",
+            "info": ""
+        },
+        {
+            "title": "Login to a private repo\n",
+            "code": "docker login\n",
+            "info": ""
+        },
+        {
+            "title": "Logout of your current session\n",
+            "code": "docker logout\n",
+            "info": ""
+        },
+        {
+            "title": "See your current session\n",
+            "code": "less ~/.docker/config.json\n",
+            "info": "As others have pointed out, an auths entry/node is added to the ~/.docker/config.json file (this also works for private registries) after you succesfully login:\n\n{\n    \"auths\": {\n            \"https://index.docker.io/v1/\": {}\n    },\n    ...\nWhen logging out, this entry is then removed:\n\n$ docker logout\nRemoving login credentials for https://index.docker.io/v1/\nContent of docker config.json after:\n\n{\n    \"auths\": {},\n    ...\n"
+        },
+        {
+            "title": "See statistics about this docker installtion\n",
+            "code": "docker info\n",
+            "info": "Sample Output:\n\nian_campbell@Ians-MBP ~ % docker info\nClient:\n Context:    default\n Debug Mode: false\n Plugins:\n  buildx: Docker Buildx (Docker Inc., v0.7.1)\n  compose: Docker Compose (Docker Inc., v2.2.3)\n  scan: Docker Scan (Docker Inc., v0.17.0)\n\nServer:\n Containers: 34\n  Running: 0\n  Paused: 0\n  Stopped: 34\n Images: 11\n Server Version: 20.10.12\n Storage Driver: overlay2\n  Backing Filesystem: extfs\n  Supports d_type: true\n  Native Overlay Diff: true\n  userxattr: false\n Logging Driver: json-file\n Cgroup Driver: cgroupfs\n Cgroup Version: 2\n Plugins:\n  Volume: local\n  Network: bridge host ipvlan macvlan null overlay\n  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog\n Swarm: inactive\n Runtimes: io.containerd.runc.v2 io.containerd.runtime.v1.linux runc\n Default Runtime: runc\n Init Binary: docker-init\n containerd version: 7b11cfaabd73bb80907dd23182b9347b4245eb5d\n runc version: v1.0.2-0-g52b36a2\n init version: de40ad0\n Security Options:\n  seccomp\n   Profile: default\n  cgroupns\n Kernel Version: 5.10.76-linuxkit\n Operating System: Docker Desktop\n OSType: linux\n Architecture: aarch64\n CPUs: 4\n Total Memory: 1.927GiB\n Name: docker-desktop\n ID: PVDS:75O4:AWPG:PU2S:WFLS:KRMI:S3NK:OAQY:THY5:HT5L:J3VB:DOUG\n Docker Root Dir: /var/lib/docker\n Debug Mode: false\n HTTP Proxy: http.docker.internal:3128\n HTTPS Proxy: http.docker.internal:3128\n No Proxy: hubproxy.docker.internal\n Registry: https://index.docker.io/v1/\n Labels:\n Experimental: false\n Insecure Registries:\n  hubproxy.docker.internal:5000\n  127.0.0.0/8\n Live Restore Enabled: false\n\n\n"
+        }
+    ]
+}

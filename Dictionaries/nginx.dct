@@ -1,0 +1,9 @@
+{
+    "snippets": [
+        {
+            "title": "Restart Nginx\n",
+            "code": "nginx -s reload\n",
+            "info": "Useful for reloading once changes have been made to the config files.\n"
+        }
+    ]
+}

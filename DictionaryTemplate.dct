@@ -1,0 +1,19 @@
+{
+    "snippets": [
+        {
+            "title": "Snippet 1",
+            "code": "echo 'Hello World!",
+            "info": "My first words in any new language."
+        },
+        {
+            "title": "The funny one",
+            "code": "lol = input -p ('What is the slipperiest country in the world?') ",
+            "info": "It's Greece!"
+        },
+        {
+            "title": "Test Snippet no. 3",
+            "code": "ls -la",
+            "info": "Shows detailed info on all files."
+        }
+    ]
+}

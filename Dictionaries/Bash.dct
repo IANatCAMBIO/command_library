@@ -1,0 +1,89 @@
+{
+    "snippets": [
+        {
+            "title": "Check connectivity to port\n",
+            "code": "nc -zv IP PORT\n",
+            "info": "replace IP and PORT with the ip or FQDN of your server and port number.\n"
+        },
+        {
+            "title": "See ALL shell variables\n\n",
+            "code": "set\n",
+            "info": "Its a big list. Lists not only env variables, but the value of the built in shell vars as well.\n"
+        },
+        {
+            "title": "See ALL env variables\n",
+            "code": "env\n",
+            "info": "Shows all currently set environment variables.\n"
+        },
+        {
+            "title": "Monitor program output\n",
+            "code": "watch EXECUTABLE-BINARY\n",
+            "info": "By default, watch will run the binary every 2 seconds. \n\nVery useful to watch hybrid pods come up (watch kubectl get pods -n hyrbid)\n"
+        },
+        {
+            "title": "Recursive chmod\n",
+            "code": "chmod -R 777 /path\n",
+            "info": "Useful on /var/log/salt when hybrid-init can't be run as root\n"
+        },
+        {
+            "title": "Recursive GREP\n",
+            "code": "grep -r \"texthere\" .\n",
+            "info": ""
+        },
+        {
+            "title": "Check TLS certificate\n",
+            "code": "echo | openssl s_client -showcerts -servername gnupg.org -connect gnupg.org:443 2&gt;/dev/null | openssl x509 -inform pem -noout -text\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "Disable SElinux\n",
+            "code": "setenforce 0\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "verify checksum - SHA256\n",
+            "code": "sha256sum -c FILENAME.CHECKSUM\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "verify checksum - MD5\n",
+            "code": "md5sum -c filename.CHECKSUM\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "forever loop\n",
+            "code": "while true; do YOURCODEHERE; done\n\n",
+            "info": "new info\n\n"
+        },
+        {
+            "title": "limited loop\n",
+            "code": "x=0;while [ $x -lt 5 ]; do curl -I http://localhost:8000/httpbin; ((x++)); done\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "install bombardier\n",
+            "code": "curl -OL https://go.dev/dl/go1.20.3.linux-amd64.tar.gz\nsudo rm -rf /usr/local/go &amp;&amp; sudo tar -C /usr/local -xzf go1.20.3.linux-amd64.tar.gz\nexport PATH=$PATH:/usr/local/go/bin\n\ngo install github.com/codesenberg/bombardier@latest\nexport PATH=$PATH:/home/ubuntu/go/bin\n\n\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "run bombardier\n",
+            "code": "bombardier -c 125 -n 10000000 http://localhost:8000/httpbin\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "Get my public IP\n",
+            "code": "dig +short myip.opendns.com @resolver1.opendns.com\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "create large file (fast)\n",
+            "code": "dd if=/dev/zero of=large-file-100gb.txt count=1024 bs=104857600\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "create large file (with lines)\n",
+            "code": "dd if=/dev/urandom of=large-file-100gb.txt count=1024 bs=104857600\n",
+            "info": "new info\n"
+        }
+    ]
+}

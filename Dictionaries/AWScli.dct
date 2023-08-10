@@ -1,0 +1,24 @@
+{
+    "snippets": [
+        {
+            "title": "See current profiles\n",
+            "code": "aws configure list\n",
+            "info": ""
+        },
+        {
+            "title": "See all shared AMIs\n",
+            "code": "aws ec2 describe-images\n",
+            "info": "Scope is current region only!\n"
+        },
+        {
+            "title": "See all hybrid AMIs\n",
+            "code": "aws ec2 describe-images --filters \"Name=name,Values=*hybrid*\"\n",
+            "info": ""
+        },
+        {
+            "title": "Find AMIs shared with a specific customer account ID\n",
+            "code": "aws ec2 describe-images --filters \"Name=name,Values=*hybrid*\" --executable-users \"ACCOUNT_ID_HERE\"\n",
+            "info": "Default, this filters for hybrids only, but the filter can be changed or removed to change the scope. \n\nUsing 'ALL' instead of an account ID will get all images.\n\nUsing 'self' instead of an account ID will get images that you can run (not including those that you own)\n\nappend this suffix to search other regions: --region=us-east-1\n\n\nhttps://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html\n\n"
+        }
+    ]
+}

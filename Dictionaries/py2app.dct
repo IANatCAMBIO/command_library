@@ -1,0 +1,24 @@
+{
+    "snippets": [
+        {
+            "title": "1. Create a setup file",
+            "code": "py2applet --make-setup MyApplication.py MyIcon.icns",
+            "info": "The first step is to create a setup.py file for your script. setup.py is the project file that tells setuptools everything it needs to know to build your application."
+        },
+        {
+            "title": "2. Cleanup build directories",
+            "code": "rm -rf build dist",
+            "info": "Before starting development or switching development modes it's usually a good idea to ensure that your build and dist directories are cleaned out"
+        },
+        {
+            "title": "3. Development with alias mode",
+            "code": "python3 setup.py py2app -A",
+            "info": "Alias mode (the -A or --alias option) instructs py2app to build an application bundle that uses your source and data files in-place. It does not create standalone applications, and the applications built in alias mode are not portable to other machines. This mode is similar to the setuptools develop command, or Xcode's zero-link feature. After this, py2app will spit out a bunch of messages to your terminal and you'll end up with new build and dist folders. The build folder contains build sludge that you'll never need to touch, and the dist folder contains your application bundle. The application bundle will be named after your script; if your script was named MyApplication.py, then your application bundle will be named MyApplication.app. Note that Finder displays application bundles without the .app extension. You only need to run this command again when you add data files or change options. Changes to your source code won't require rebuilding!"
+        },
+        {
+            "title": "4. Building for deployment",
+            "code": "python3 setup.py py2app",
+            "info": "After you've got your application working smoothly in alias mode, it's time to start building a redistributable version. Since we're switching from alias mode to normal mode, you should remove your build and dist folders as above. This will assemble your application as dist/MyApplication.app. Since this application is self-contained, you will have to run the py2app command again any time you change any source code, data files, options, etc."
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "snippets": [
+        {
+            "title": "Add a new repo",
+            "code": "helm repo add fantastic-charts https://fantastic-charts.storage.googleapis.com",
+            "info": "Do this before deploying a chart."
+        },
+        {
+            "title": "See current repos",
+            "code": "helm repo list",
+            "info": "Shows all configured repos."
+        },
+        {
+            "title": "Install a Helm chart",
+            "code": "helm install stable/wordpress",
+            "info": "If this does not work, check the repos."
+        },
+        {
+            "title": "Uninstall a Helm chart",
+            "code": "helm uninstall PACKAGENAME",
+            "info": "In older versions of Helm, this is 'helm delete ....'"
+        },
+        {
+            "title": "Upgrade a currently deployed Helm chart",
+            "code": "helm upgrade stable/wordpress",
+            "info": "Replace stable/wordpress with the path to your chart."
+        },
+        {
+            "title": "See all deployed Helm charts",
+            "code": "helm list",
+            "info": "This is only accurate if you haven't messed with Docker directly."
+        },
+        {
+            "title": "Update local repositories based on chart.yaml",
+            "code": "helm dependency update",
+            "info": "Should be done automatically at installation."
+        },
+        {
+            "title": "See what was actually deployed by a release.\n",
+            "code": "helm -n <namespace> get all <release-name>\n",
+            "info": "You can also use:\nhelm -n <namespace> get values <release-name>\nto just get the computed values.\nOr\nhelm -n <namespace> get manifest <release-name>\nto view the generated resource configurations\n"
+        },
+        {
+            "title": "Update an already installed chart\n",
+            "code": "helm upgrade <chartname>\n",
+            "info": "This will just update an existing chart with the latest version specfied.\n"
+        }
+    ]
+}

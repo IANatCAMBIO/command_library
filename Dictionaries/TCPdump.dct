@@ -1,0 +1,9 @@
+{
+    "snippets": [
+        {
+            "title": "TCPdump http gets\n",
+            "code": "tcpdump -i enp0s8 -s 0 -A &apos;tcp[((tcp[12:1] &amp; 0xf0) &gt;&gt; 2):4] = 0x47455420&apos;\n",
+            "info": "new info\n"
+        }
+    ]
+}

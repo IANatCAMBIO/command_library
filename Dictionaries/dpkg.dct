@@ -1,0 +1,24 @@
+{
+    "snippets": [
+        {
+            "title": "See all installed packages\n",
+            "code": "sudo dpkg-query -l | less\n",
+            "info": "Salt sensor's package name is:\nsalt-linux-sensor\n"
+        },
+        {
+            "title": "See all files copied from an installed package\n",
+            "code": "dpkg-query -L <package_name>\n",
+            "info": "Use the package name and NOT the .deb filename.\n"
+        },
+        {
+            "title": "See what files WOULD be installed from a package\n",
+            "code": "dpkg-deb -c <package_name.deb>\n",
+            "info": ""
+        },
+        {
+            "title": "Uninstall a package\n",
+            "code": "sudo dpkg -r package name\n",
+            "info": ""
+        }
+    ]
+}

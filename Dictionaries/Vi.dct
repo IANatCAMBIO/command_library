@@ -1,0 +1,19 @@
+{
+    "snippets": [
+        {
+            "title": "vi tutorial",
+            "code": "vimtutor",
+            "info": "Become vi ninja"
+        },
+        {
+            "title": "Show line numbers\n",
+            "code": ":set number\n",
+            "info": "new info\n"
+        },
+        {
+            "title": "Open a new line below the current one\n",
+            "code": "o\n",
+            "info": "new info\n"
+        }
+    ]
+}

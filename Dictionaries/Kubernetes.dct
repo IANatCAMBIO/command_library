@@ -1,0 +1,204 @@
+{
+    "snippets": [
+        {
+            "title": "See available contexts",
+            "code": "kubectl config view -o json | jq '.contexts'",
+            "info": "This will show all contexts configured in the current config file. JQ is not required, but much nicer."
+        },
+        {
+            "title": "Switch to a context",
+            "code": "kubectl config use-context CONTEXTNAME",
+            "info": "Replace CONTEXTNAME with the name of a context."
+        },
+        {
+            "title": "Get the current context",
+            "code": "kubectl config current-context",
+            "info": "Where am I now?"
+        },
+        {
+            "title": "Delete a context",
+            "code": "kubectl config unset contexts.CONTEXTNAME",
+            "info": "Remove a context from your config file."
+        },
+        {
+            "title": "Show all namespaces",
+            "code": "kubectl get namespaces",
+            "info": "Shows all configured namespaces on the current cluster."
+        },
+        {
+            "title": "Create a namespace",
+            "code": "kubectl create namespace <insert-namespace-name-here>",
+            "info": "Create a new namespace on the current cluster."
+        },
+        {
+            "title": "Get the current namespace",
+            "code": "kubectl config view --minify --output 'jsonpath={..namespace}'",
+            "info": "Shows the currently configured default namespace. Most commands can be appended with -n NAMESPACE to operate on alternate namespaces."
+        },
+        {
+            "title": "Set default namespace",
+            "code": "kubectl config set-context --current --namespace=hybrid",
+            "info": "Where am I now?"
+        },
+        {
+            "title": "Get the current context",
+            "code": "kubectl config set-context --current --namespace=hybrid",
+            "info": "Replace 'hybrid' with your desired namespace. Then you won't have to explicitly type -n NAMESPACE for all commands."
+        },
+        {
+            "title": "Get all* objects in the current cluster",
+            "code": "kubectl get all --all-namespaces",
+            "info": "Will miss SOME things. I think pv and pvc?"
+        },
+        {
+            "title": "Get all pods in the current namespace",
+            "code": "kubectl get pods",
+            "info": "Gets pod name, status, and uptime."
+        },
+        {
+            "title": "Get more details about a pod",
+            "code": "kubectl describe pod PODNAME",
+            "info": "Will also show any other containers (sidecars) running in the pod."
+        },
+        {
+            "title": "Get all nodes in the current cluster",
+            "code": "get nodes -o wide",
+            "info": "Shows nodes for the current cluster."
+        },
+        {
+            "title": "See node labels",
+            "code": "kubectl get nodes --show-labels",
+            "info": "Useful for troubleshooting affinity or scheduling conflicts."
+        },
+        {
+            "title": "Get Statefulsets",
+            "code": "kubectl get statefulsets",
+            "info": "See your current statefulsets"
+        },
+        {
+            "title": "Get Deployments",
+            "code": "kubectl get deployments",
+            "info": "See your current deployments."
+        },
+        {
+            "title": "Get Daemonsets",
+            "code": "kubectl get daemonsets",
+            "info": "See your current daemonsets."
+        },
+        {
+            "title": "Get Services",
+            "code": "kubectl get svc",
+            "info": "Get current services."
+        },
+        {
+            "title": "Get Persistent Volumes",
+            "code": "kubectl get pv",
+            "info": "See your persistent volumes. Also check persistent volume claims (pvc)."
+        },
+        {
+            "title": "Get Persistent Volume Claims",
+            "code": "kubectl get pvc",
+            "info": "If you can't delete a PV, its likely one of these."
+        },
+        {
+            "title": "Deploy from a YAML manifest",
+            "code": "kubectl create -f deployment.yaml --namespace=custom-namespace",
+            "info": "Replace custom-namespace with you namespace. Or leave it off completely to use the default."
+        },
+        {
+            "title": "Delete an existing deployment",
+            "code": "Kubectl delete deployment DEPLOYMENTNAME",
+            "info": "Use 'watch kubectl get pods' to watch the terminations."
+        },
+        {
+            "title": "Scale a deployment",
+            "code": "kubectl scale deployment DEPLOYMENTNAME --replicas=5",
+            "info": "change '5' to the number of instances that you want."
+        },
+        {
+            "title": "Delete ALMOST EVERYTHING from a namespace",
+            "code": "kubectl delete all --all -n namespace",
+            "info": "Replace 'namespace' with your target namespace name. Will delete: pods, services, statefulsets, Will not delete: storageClasses, persistentVolumes, persistentVolumeClaims, and of course nodes."
+        },
+        {
+            "title": "Delete EVERYTHING from a namespace",
+            "code": "kubectl delete \"$(kubectl api-resources --namespaced=true --verbs=delete -o name | tr \"\n\" \",\" | sed -e 's/,$//')\" --all",
+            "info": "This should get everything..."
+        },
+        {
+            "title": "Get events for a POD",
+            "code": "kubectl get event --namespace hybrid --field-selector involvedObject.name=my-pod-name",
+            "info": "Replace namespace and podnames. You can remove the arguments to get ALL events."
+        },
+        {
+            "title": "Get a shell on a container in a pod",
+            "code": "kubectl exec -i -t PODNAME -c CONTAINERNAME -- /bin/bash",
+            "info": "If you leave off '-c', it will just use the first? container in the pod."
+        },
+        {
+            "title": "Execute a command on a pod",
+            "code": "kubectl exec -ti PODNAME -- /bin/bash",
+            "info": "-t (virtual terminal) and -i (interactive) are optional, but may be required for some binaries."
+        },
+        {
+            "title": "What node is a pod on?",
+            "code": "kubectl get pods -o wide -n hybrid",
+            "info": "change '5' to the number of instances that you want."
+        },
+        {
+            "title": "Expose a deployment as a service",
+            "code": "kubectl expose deployment DEPLOYMENTNAME--type=NodePort --port=80 --name=NEWSERVICENAME",
+            "info": "'kubectl get svc' after this. You'll use the same port on all node IPs for access."
+        },
+        {
+            "title": "Get logs for a pod",
+            "code": "kubectl logs PODNAME",
+            "info": "Replace PODNAME with the name of a pod."
+        },
+        {
+            "title": "Add labels to a node\n",
+            "code": "kubectl label nodes <node-name> <label-key>=<label-value>\n",
+            "info": ""
+        },
+        {
+            "title": "See all local images\n\n",
+            "code": "k3s crictl images\n",
+            "info": "May need to sudo\n"
+        },
+        {
+            "title": "Delete an image from local\n",
+            "code": "k3s crictl rmi IMAGENAME\n",
+            "info": ""
+        },
+        {
+            "title": "Automatically delete unused images\n",
+            "code": "k3s crictl rmi --prune\n",
+            "info": ""
+        },
+        {
+            "title": "Get Pod Security Policy\n",
+            "code": "kubectl get psp\n",
+            "info": ""
+        },
+        {
+            "title": "Add label to All Nodes\n",
+            "code": "kubectl get nodes -o name | xargs -I NodeName kubectl label NodeName dedicated=salt-hybrid\n",
+            "info": "Replace 'dedicated=salt-hybrid' with any label that you with. \n\nSince our format for node names is 'node/NODENAME', the word nodes is not required in the labelling command. \n"
+        },
+        {
+            "title": "See taints for nodes\n",
+            "code": "kubectl get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints --no-headers\n",
+            "info": "This will give you a list with all taints in a map tuple (effect, key, value)\n"
+        },
+        {
+            "title": "Delete label from node\n",
+            "code": "kubectl label nodes NODENAME LABELKEY-\n\n",
+            "info": "Note the 'minus' sign after labelname with no space.\n"
+        },
+        {
+            "title": "Scale a statefulset\n",
+            "code": "kubectl scale statefulsets <stateful-set-name> --replicas=<new-replicas>\n",
+            "info": ""
+        }
+    ]
+}

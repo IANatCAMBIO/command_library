@@ -1,0 +1,14 @@
+{
+    "snippets": [
+        {
+            "title": "Create a password-protected zip\n",
+            "code": "zip -er FILENAME.zip Directory_or_file_to_zip\n",
+            "info": "If you zip a directory on MacOS by dragging it to the archive, then the hierarchy of folders is preserved in the zip file!\n"
+        },
+        {
+            "title": "Restart the dock\n",
+            "code": "killall Dock\n",
+            "info": "Sometimes with an external monitor, the dock does not appear or its in the wrong place. \n"
+        }
+    ]
+}

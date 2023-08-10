@@ -1,0 +1,39 @@
+{
+    "snippets": [
+        {
+            "title": "List all IPv4 rules\n",
+            "code": "sudo iptables -S\n",
+            "info": ""
+        },
+        {
+            "title": "List ALL rules\n",
+            "code": "sudo iptables -L -v -n | more\n",
+            "info": ""
+        },
+        {
+            "title": "List just INPUT chain rules\n",
+            "code": "sudo iptables -L INPUT -v -n\n",
+            "info": "or sudo iptables -S INPUT\n"
+        },
+        {
+            "title": "How to read rules\n\n",
+            "code": "N/A\n",
+            "info": "target \u2013 Tell what to do when a packet matches the rule. Typically, you ACCEPT or REJECT or DROP the packet. You can jump to another chain too.\nprot \u2013 The protocol for rule.\nopt \u2013 Additional options for rule.\nsource \u2013 The source IP address/subnet/domain name.\ndestination \u2013 The destination IP address/subnet/domain name.\n"
+        },
+        {
+            "title": "Delete all rules\n\n",
+            "code": "sudo iptables -F\n",
+            "info": ""
+        },
+        {
+            "title": "Delete all rules for a single chain\n",
+            "code": "sudo iptables -F INPUT\n",
+            "info": "Substitute any chain name for INPUT to target that chain.\n"
+        },
+        {
+            "title": "Total reset\n",
+            "code": "sudo iptables -P INPUT ACCEPT;sudo iptables -P FORWARD ACCEPT;sudo iptables -P OUTPUT ACCEPT;sudo iptables -t nat -F;sudo iptables -t mangle -F;sudo iptables -F;sudo iptables -X\n",
+            "info": "The first 3 commands set all built-in chains to default to ACCEPT.\n\nThen, we'll flush the NAT and MANGLE tables, flush ALL firewall chains, and delete any non-default chains.\n"
+        }
+    ]
+}
